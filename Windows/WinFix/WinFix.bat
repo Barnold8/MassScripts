@@ -71,7 +71,7 @@ cls
 
 echo Running Check disk...
 echo ---------------------
-chkdsk
+chkdsk /F
 set /p IGNORE=Press enter to continue
 cls
 
