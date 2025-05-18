@@ -66,11 +66,13 @@ cls
 echo Running RestoreHealth...
 echo ------------------------
 DISM /Online /Cleanup-Image /RestoreHealth
+set /p IGNORE=Press enter to continue
 cls
 
 echo Running Check disk...
 echo ---------------------
 chkdsk
+set /p IGNORE=Press enter to continue
 cls
 
 echo Running MemCheck...
