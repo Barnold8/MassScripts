@@ -13,7 +13,7 @@ else{
         #TODO: copy contents of file to clipboard and delete file 
         openssl enc -d -aes-256-cbc -in $file -out "$($file).unencrypted"
         type "$($file).unencrypted" | clip.exe
-        del /f "$($file).unencrypted"
+        del "$($file).unencrypted"
     }else{
         openssl enc -d -aes-256-cbc -in $file -out "$($file).unencrypted"
     }
