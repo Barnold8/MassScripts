@@ -3,7 +3,7 @@
 import subprocess
 import sys
 import re
-import pyperclip
+import os
 
 
 MULLVAD_NAME = "mullvad"
@@ -31,8 +31,13 @@ if __name__ == "__main__":
             match = IP_REGEX.search(newline)
             if match:
                 mullvad_string = match.group()
+                break
 
-        if found:
-            found = False
-
-    pyperclip.copy(mullvad_string)
+    
+    if found and len(mullvad_string) < IP_MIN_CHAR_LEN:
+        eprint("Error: found mullvad vpn adapter but couldnt find corresponding IPV4 address, try disconnecting and reconnecting to the VPN")
+    elif found == False:
+        eprint("Error: could not find mullvad vpn adapter, make sure you are connected to mullvad")
+        print(mullvad_string,found)
+    else:
+        os.system(f"echo {mullvad_string} | clip")
