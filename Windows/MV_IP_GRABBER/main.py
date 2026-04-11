@@ -12,11 +12,7 @@ def eprint(*args, **kwargs): # with thanks to https://stackoverflow.com/question
 if __name__ == "__main__":
 
     ip_text = subprocess.check_output(['ipconfig']).decode("utf-8") # call ipconfig and convert to string from bytes
-    
-    try:
-        mullvad_start = ip_text.index(MULLVAD_NAME)
-        print(mullvad_start)
-    except ValueError as notFound:
-        eprint("Error:", notFound)
+    strings = ip_text.split("\n")
+
 
 
