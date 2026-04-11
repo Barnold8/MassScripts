@@ -14,6 +14,31 @@ IP_MIN_CHAR_LEN = 7
 def eprint(*args, **kwargs): # with thanks to https://stackoverflow.com/questions/5574702/how-do-i-print-to-stderr-in-python 
     print(*args, file=sys.stderr, **kwargs)
 
+def printHelp():
+    print("""
+Help for setting the VPN address on bit torrent
+        
+    1.  Open BitTorrent 7.11.
+
+    2.  Go to Options > Preferences.
+
+    3.  In the left-hand menu, click on Advanced.
+
+    4.  In the "Filter" box at the top right, type: net.bind_ip
+
+    5.  Click on the result net.bind_ip and, in the Value field below, paste the Mullvad IPv4 address you found in Phase 1.
+
+    6.  Click Set.
+
+    7.  Now, type net.outgoing_port or net.outgoing_ip in the filter box.
+
+    8.  Select net.outgoing_ip, paste the same Mullvad IP into the Value field, and click Set.
+
+    9.  Click Apply and OK.
+
+    10. Restart BitTorrent (fully exit from the system tray and reopen).
+    """)
+
 if __name__ == "__main__":
 
     ip_text = subprocess.check_output(['ipconfig']).decode("utf-8") # call ipconfig and convert to string from bytes
@@ -41,3 +66,4 @@ if __name__ == "__main__":
         print(mullvad_string,found)
     else:
         os.system(f"echo {mullvad_string} | clip")
+        printHelp()
