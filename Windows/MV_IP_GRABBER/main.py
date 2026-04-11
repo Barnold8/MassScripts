@@ -3,8 +3,15 @@
 import os 
 
 
+MULLVAD_NAME = "Mullvad"
+
 if __name__ == "__main__":
 
     ip_text = os.system("ipconfig")
-    print()
+    
+    try:
+        mullvad_start = ip_text.index(MULLVAD_NAME)
+    except ValueError as notFound:
+        print()
+
 
