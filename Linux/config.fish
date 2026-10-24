@@ -28,3 +28,6 @@ alias gitList="git ls-files . --exclude-standard --others"
 alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/MassScripts/Linux/" # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
 alias updateHyprlandConfig="cp -i ~/.config/hypr/hyprland.conf ~/Code/MassScripts/Linux/"
 alias gotoScripts="cd ~/Code/MassScripts/Linux"
+alias printAliases="cat ~/.config/fish/config.fish"
+alias rebootNetwork="sudo systemctl restart NetworkManager"
+alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/MassScripts && git add . && git commit -m \"Update configs\" && pushToGit"
