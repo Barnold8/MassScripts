@@ -9,7 +9,6 @@ FILES=()
 
 function iterateIndex(){
 	if [ $INDEX -gt ${#FILES[@]} ];then
-		echo "Length of array = ${#FILES[@]}"
 		let INDEX=0 
 
 	else
@@ -25,10 +24,6 @@ if [ ! -f "$WALLPAPER_INDEX_FILE" ]; then
 else
 	read -r INDEX < "$WALLPAPER_INDEX_FILE"
 fi
-
-echo "INDEX IS $INDEX"
-
-
 
 # I stole this from catWallpaper.sh
 if [ "$#" -gt 0 ]; then # parse user argument for custom implementations according to specific desktop environments or window managers. This came about because im using noctalia
